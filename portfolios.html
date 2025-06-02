@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio | Nexia Studio</title>
+  <link rel="icon" href="https://res.cloudinary.com/dzy2rrwao/image/upload/v1748457001/logo_sin_fondoNexia_wxksfq.png" type="image/png">
+  <style>
+    :root {
+      --tarjeton-madre-opacity: 0.0;
+      --subtarjeton-opacity: 0.0;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: url('https://res.cloudinary.com/dzy2rrwao/image/upload/v1748105460/2._Sobre_Nosotros_y3yycc.png') center center no-repeat;
+      background-size: cover;
+      min-height: 100vh;
+      color: #1E1E1E;
+      position: relative;
+    }
+    .filtro-fondo {
+      position: fixed;
+      z-index: 0;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(247,246,250,0.90);
+      pointer-events: none;
+    }
+    .header-banner {
+      width: 100%;
+      height: 130px;
+      background:
+        linear-gradient(120deg, rgba(108,59,210,0.92) 60%, rgba(231,101,246,0.25) 100%),
+        url('https://res.cloudinary.com/dzy2rrwao/image/upload/v1748105460/2._Sobre_Nosotros_y3yycc.png') center center no-repeat;
+      background-size: cover;
+      border-radius: 0 0 28px 28px;
+      box-shadow: 0 3px 30px rgba(80,56,170,0.09);
+      position: relative;
+      z-index: 10;
+      overflow: visible;
+      display: block;
+      padding: 0;
+    }
+    .logo-nexia {
+      position: absolute;
+      left: 50%;
+      top: -70%;
+      transform: translate(-50%, -50%);
+      height: 350px;
+      width: auto;
+      max-width: 90vw;
+      filter: drop-shadow(0 4px 16px rgba(60,28,123,0.13));
+      margin: 0;
+      z-index: 11;
+      background: none;
+      pointer-events: auto;
+      opacity: 0;
+      animation: logoFadeInUp 2.15s cubic-bezier(.39,.6,.46,1.09) 0.1s both;
+    }
+    @keyframes logoFadeInUp {
+      0% { opacity: 0; transform: translate(-50%, -15px) scale(0.94);}
+      50% { opacity: 0.75; transform: translate(-50%, -6px) scale(1.08);}
+      80% { opacity: 1; transform: translate(-50%, 3px) scale(0.98);}
+      100% { opacity: 1; transform: translate(-50%, 0) scale(1);}
+    }
+    @media (max-width: 700px) {
+      .header-banner { height: 75px; border-radius: 0 0 18px 18px;}
+      .logo-nexia { height: 150px; top: -45%; max-width: 96vw;}
+    }
+    .servicios-container {
+      max-width: 1100px;
+      margin: 50px auto 32px auto;
+      background: rgba(255,255,255,var(--tarjeton-madre-opacity));
+      border-radius: 24px;
+      padding: 2.3rem 1.2rem 2.2rem 1.2rem;
+      position: relative;
+      z-index: 2;
+      transition: background 0.3s;
+    }
+    .servicios-titulo {
+      font-family: 'Montserrat', sans-serif;
+      color: #6C3BD2;
+      font-size: 2rem;
+      margin-bottom: 2.3rem;
+      text-align: center;
+      font-weight: 700;
+    }
+    .servicios-desc {
+      font-size: 1.13rem;
+      color: #6557a8;
+      font-weight: 600;
+      margin-bottom: 2.3rem;
+      max-width: 600px;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.45;
+    }
+    .tarjetas-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 34px;
+      justify-content: center;
+      align-items: stretch;
+      margin-bottom: 2.7rem;
+    }
+    .tarjeta-servicio {
+      background: rgba(255,255,255,var(--subtarjeton-opacity));
+      border-radius: 20px;
+      transition: background 0.3s, transform 0.18s;
+      width: 295px;
+      min-height: 200px;
+      max-width: 97vw;
+      padding: 2.1rem 1.2rem 1.5rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .tarjeta-servicio:hover {
+      border: 2px solid #6C3BD2;
+      transform: scale(1.04);
+    }
+    .tarjeta-titulo {
+      color: #5227a3;
+      font-size: 1.18rem;
+      font-weight: 800;
+      margin-bottom: 1.2rem;
+      font-family: 'Montserrat', Arial, sans-serif;
+      letter-spacing: 0.2px;
+    }
+    .tarjeta-logo {
+      width: 100%;
+      max-width: 210px;
+      margin: 0 auto 0.5rem auto;
+      display: block;
+      background: none !important;
+      border-radius: 0;
+      box-shadow: none;
+      transition: filter 0.15s;
+      pointer-events: none;
+      user-select: none;
+    }
+    .btn-volver {
+      display: block;
+      margin: 2.1rem auto 0 auto;
+      background: #EAEAEA;
+      color: #6C3BD2;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.05rem;
+      padding: 0.9rem 2.1rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(60,28,123,0.08);
+      border: none;
+      transition: background 0.16s, color 0.16s;
+      text-align: center;
+      width: fit-content;
+      cursor: pointer;
+    }
+    .btn-volver:hover { background: #6C3BD2; color: #fff; }
+
+    /* --- Modal estilos --- */
+    .modal-bg {
+      display: none;
+      position: fixed;
+      z-index: 99;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(30, 30, 30, 0.82);
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.18s;
+    }
+    .modal-bg.open { display: flex; }
+    .modal-ventana {
+      background: #fff;
+      border-radius: 18px;
+      max-width: 900px;
+      width: 98vw;
+      max-height: 85vh;
+      overflow: auto;
+      padding: 2.2rem 1.5rem 1.5rem 1.5rem;
+      box-shadow: 0 12px 60px rgba(80,56,170,0.22), 0 3px 12px #e3d8f9;
+      position: relative;
+      animation: popInModal 0.23s;
+    }
+    @keyframes popInModal {
+      from { opacity: 0; transform: scale(0.90);}
+      to { opacity: 1; transform: scale(1);}
+    }
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.2rem;
+    }
+    .modal-titulo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.23rem;
+      font-weight: 900;
+      color: #6C3BD2;
+      margin: 0;
+    }
+    .modal-close {
+      background: none;
+      border: none;
+      color: #5227a3;
+      font-size: 1.8rem;
+      font-weight: 900;
+      cursor: pointer;
+      margin-left: 16px;
+      margin-top: -5px;
+    }
+    .modal-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .modal-tab {
+      background: #efe6fd;
+      color: #5227a3;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.02rem;
+      font-weight: 800;
+      border: none;
+      border-radius: 9px;
+      padding: 0.6rem 1.2rem;
+      cursor: pointer;
+      transition: background 0.16s, color 0.14s;
+    }
+    .modal-tab.active, .modal-tab:hover {
+      background: #6C3BD2;
+      color: #fff;
+    }
+    .modal-galeria {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 13px;
+      padding: 7px 0;
+    }
+    .modal-galeria img {
+      width: 100%;
+      max-width: 100%;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 3px 16px rgba(108,59,210,0.09);
+      object-fit: cover;
+      background: #fff0;
+      transition: filter 0.18s;
+    }
+    .modal-galeria img:hover {
+      filter: brightness(1.07) saturate(1.04);
+    }
+    @media (max-width: 900px) {
+      .modal-ventana { padding: 1.4rem 0.3rem; }
+      .modal-galeria { grid-template-columns: repeat(2, 1fr);}
+    }
+    @media (max-width: 600px) {
+      .modal-galeria { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="filtro-fondo"></div>
+  <!-- Banner y Logo -->
+  <header class="header-banner">
+    <img 
+      src="https://res.cloudinary.com/dzy2rrwao/image/upload/v1748275301/logo_Nexia_PNG_sin_fondo_acomodado_f6ov3b.svg" 
+      alt="Logo Nexia Studio"
+      class="logo-nexia"
+    >
+  </header>
+
+  <div class="servicios-container">
+    <div class="servicios-titulo">Portafolio</div>
+    <div class="servicios-desc">
+      Mirá algunos de nuestros trabajos recientes. Cada proyecto está hecho a medida para potenciar la presencia digital de nuestros clientes.
+    </div>
+    <div class="tarjetas-grid">
+      <!-- Crunch & Dumplings -->
+      <div class="tarjeta-servicio" onclick="abrirModal('crunch')">
+        <div class="tarjeta-titulo">Crunch & Dumplings</div>
+        <img
+          class="tarjeta-logo"
+          src="https://res.cloudinary.com/dzy2rrwao/image/upload/w_210,c_limit,q_85,f_auto/v1748447125/logo_sin_fondoi_hk6usm.png"
+          alt="Logo Restaurante Oriental"
+          loading="lazy"
+        >
+      </div>
+      <!-- Aprende Fácil Digital -->
+      <div class="tarjeta-servicio" onclick="abrirModal('afd')">
+        <div class="tarjeta-titulo">Aprende Fácil Digital</div>
+        <img
+          class="tarjeta-logo"
+          src="https://res.cloudinary.com/dzy2rrwao/image/upload/w_210,c_limit,q_85,f_auto/v1748447125/logo_sin_fondo_aprendeFD_clritk.png"
+          alt="Logo Aprende Fácil Digital"
+          loading="lazy"
+        >
+      </div>
+    </div>
+    <button class="btn-volver" onclick="window.location.href='index.html'">← Volver</button>
+  </div>
+
+  <!-- Modal para galería -->
+  <div class="modal-bg" id="modalBg">
+    <div class="modal-ventana">
+      <div class="modal-header">
+        <span class="modal-titulo" id="modalTitulo"></span>
+        <button class="modal-close" id="modalCerrarBtn" title="Cerrar">&times;</button>
+      </div>
+      <div class="modal-tabs" id="modalTabs"></div>
+      <div class="modal-galeria" id="modalGaleria"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Nexia Studio — Todos los derechos reservados</p>
+  </footer>
+
+  <script>
+    // Galerías organizadas por empresa/cliente y categoría
+    const PORTAFOLIOS = {
+      crunch: {
+        nombre: "Crunch & Dumplings",
+        categorias: [
+          {
+            nombre: "", // Sin título
+            imagenes: [
+              "https://res.cloudinary.com/dzy2rrwao/image/upload/w_350,c_limit,q_90,f_auto/v1748452046/crunchy_navidad1_i7w6n9.png",
+              "https://res.cloudinary.com/dzy2rrwao/image/upload/w_350,c_limit,q_90,f_auto/v1748452046/crunchy_navidad3_shmcmi.png",
+              "https://res.cloudinary.com/dzy2rrwao/image/upload/w_350,c_limit,q_90,f_auto/v1748452046/crunchy_navidad2_xgxhz7.png",
+              "https://res.cloudinary.com/dzy2rrwao/image/upload/w_350,c_limit,q_90,f_auto/v1748198656/foto1_kqitro.jpg",
+              "https://res.cloudinary.com/dzy2rrwao/image/upload/w_350,c_limit,q_90,f_auto/v1748198654/foto7_qzcsgc.jpg"
+            ]
+          },
+          {
+            nombre: "Diseños",
+            imagenes: [
+              "https://res.cloudinary.com/dzy2rrwao/image/upload/w_350,c_limit,q_90,f_auto/v1748198656/8a_x6l31f.png",
+              "https://res.cloudinary.com/dzy2rrwao/image/upload/w_350,c_limit,q_90,f_auto/v1748198655/1a_qjmsos.png",
+              "https://res.cloudinary.com/dzy2rrwao/image/upload/w_350,c_limit,q_90,f_auto/v1748198655/8c_pvx5th.png",
+              "https://res.cloudinary.com/dzy2rrwao/image/upload/w_350,c_limit,q_90,f_auto/v1748198654/3_xnwkjp.png",
+              "https://res.cloudinary.com/dzy2rrwao/image/upload/w_350,c_limit,q_90,f_auto/v1748198652/10_lclufw.png",
+              "https://res.cloudinary.com/dzy2rrwao/image/upload/w_350,c_limit,q_90,f_auto/v1748198651/file-F9nu6NRd2i867kfXTVE17q_euckfp.webp",
+              "https://res.cloudinary.com/dzy2rrwao/image/upload/w_350,c_limit,q_90,f_auto/v1748198650/file-1XCFZuVc8q5JiPErNqNrk5_e6cc8c.webp",
+              "https://res.cloudinary.com/dzy2rrwao/image/upload/w_350,c_limit,q_90,f_auto/v1748198650/histori_1_vdb3vp.jpg",
+              "https://res.cloudinary.com/dzy2rrwao/image/upload/w_350,c_limit,q_90,f_auto/v1748198649/menu_comprimido_wn1zyg.jpg"
+            ]
+          }
+        ]
+      },
+      afd: {
+        nombre: "Aprende Fácil Digital",
+        categorias: [
+          {
+            nombre: "Diseños",
+            imagenes: [
+              "https://res.cloudinary.com/dzy2rrwao/image/upload/w_350,c_limit,q_90,f_auto/v1748526025/portada_del_libro_aprende_IA_40_xhn42o.jpg",
+              "https://res.cloudinary.com/dzy2rrwao/image/upload/w_350,c_limit,q_90,f_auto/v1748526008/Aprende_con_Tecnolog%C3%ADa_y_Creatividad_whmdog.png"
+            ]
+          }
+        ]
+      }
+    };
+
+    // Modal lógica
+    const modalBg = document.getElementById('modalBg');
+    const modalTitulo = document.getElementById('modalTitulo');
+    const modalGaleria = document.getElementById('modalGaleria');
+    const modalTabs = document.getElementById('modalTabs');
+    const modalCerrarBtn = document.getElementById('modalCerrarBtn');
+    let ultimaCategoriaIdx = 0;
+
+    function abrirModal(portafolioId) {
+      const portafolio = PORTAFOLIOS[portafolioId];
+      if (!portafolio) return;
+      modalTitulo.textContent = portafolio.nombre;
+      modalTabs.innerHTML = '';
+      modalGaleria.innerHTML = '';
+      ultimaCategoriaIdx = 0;
+
+      // Tabs/categorías
+      if (portafolio.categorias.length > 1) {
+        portafolio.categorias.forEach((cat, idx) => {
+          const btn = document.createElement('button');
+          btn.textContent = cat.nombre || "Fotos";
+          btn.className = "modal-tab" + (idx === 0 ? " active" : "");
+          btn.onclick = () => mostrarCategoria(portafolio, idx);
+          modalTabs.appendChild(btn);
+        });
+        modalTabs.style.display = "flex";
+      } else {
+        modalTabs.style.display = "none";
+      }
+
+      mostrarCategoria(portafolio, 0);
+      modalBg.classList.add('open');
+      document.body.style.overflow = "hidden";
+    }
+
+    function mostrarCategoria(portafolio, idx) {
+      ultimaCategoriaIdx = idx;
+      // Resalta el tab activo
+      const tabs = modalTabs.querySelectorAll('.modal-tab');
+      tabs.forEach((tab, i) => tab.classList.toggle('active', i === idx));
+      // Galería
+      modalGaleria.innerHTML = '';
+      const imagenes = portafolio.categorias[idx].imagenes;
+      imagenes.forEach(url => {
+        const img = document.createElement('img');
+        img.src = url;
+        img.alt = "";
+        img.loading = "lazy";
+        modalGaleria.appendChild(img);
+      });
+    }
+
+    function cerrarModal() {
+      modalBg.classList.remove('open');
+      document.body.style.overflow = "";
+      modalGaleria.innerHTML = '';
+    }
+    modalCerrarBtn.onclick = cerrarModal;
+    modalBg.onclick = (e) => { if (e.target === modalBg) cerrarModal(); }
+    window.addEventListener('keydown', e => { if (e.key === "Escape") cerrarModal(); });
+
+  </script>
+</body>
+</html>

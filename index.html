@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexia Studio</title>
+  <link rel="icon" href="https://res.cloudinary.com/dzy2rrwao/image/upload/v1748457001/logo_sin_fondoNexia_wxksfq.png" type="image/png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap');
+    html, body {
+      overflow-x: hidden !important;
+      width: 100vw;
+      max-width: 100vw;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: url('https://res.cloudinary.com/dzy2rrwao/image/upload/v1748105480/4._Conoc%C3%A9_Nuestros_Planes_cidkl2.png') center center no-repeat;
+      background-size: cover;
+      min-height: 100vh;
+      color: #1E1E1E;
+      position: relative;
+    }
+    .filtro-fondo {
+      position: fixed;
+      z-index: 0;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(247,246,250,0.96);
+      pointer-events: none;
+    }
+    .header-banner {
+      width: 100%;
+      height: 160px;
+      background: linear-gradient(120deg, rgba(108,59,210,0.92) 60%, rgba(231,101,246,0.25) 100%);
+      border-radius: 0 0 28px 28px;
+      box-shadow: 0 3px 30px rgba(80,56,170,0.09);
+      position: relative;
+      z-index: 10;
+      overflow: visible;
+    }
+    /* Logo: posición y tamaño totalmente independientes */
+    .logo-nexia {
+      position: absolute;
+      top: -100px;
+      left: 39%;
+      transform: translateX(-50%);
+      height: 400px;
+      max-width: 350px;
+      filter: drop-shadow(0 4px 16px rgba(60,28,123,0.13));
+      opacity: 0;
+      animation: logoFadeInUp 2.15s cubic-bezier(.39,.6,.46,1.09) 0.1s both;
+      background: none;
+      pointer-events: auto;
+      z-index: 20;
+      transition: height 0.2s, top 0.2s, left 0.2s;
+    }
+    @keyframes logoFadeInUp {
+      0% { opacity: 0; transform: translateY(-15px) scale(0.94);}
+      50% { opacity: 0.75; transform: translateY(-6px) scale(1.08);}
+      80% { opacity: 1; transform: translateY(3px) scale(0.98);}
+      100% { opacity: 1; transform: translateY(0) scale(1);}
+    }
+    /* Menú hamburguesa: posición y tamaño totalmente independientes */
+    .main-nav {
+      position: absolute;
+      top: 45px;
+      right: 80px;
+      z-index: 30;
+    }
+    .menu-btn {
+      display: flex;
+      align-items: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0 8px;
+    }
+    .menu-icon {
+      width: 75px;
+      height: 65px;
+      fill: #5227a3;
+      display: block;
+      transition: filter 0.13s;
+    }
+    .menu-list {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 78vw;
+      max-width: 340px;
+      height: 100vh;
+      background: #faf7fd;
+      box-shadow: -2px 0 24px rgba(108,59,210,0.91);
+      padding: 120px 24px 32px 24px;
+      z-index: 200;
+      animation: fadeInRight 0.23s;
+    }
+    .menu-list.open {
+      display: flex;
+    }
+    .menu-link {
+      font-family: 'Montserrat', Arial, sans-serif;
+      color: #5227a3;
+      background: none;
+      font-weight: 800;
+      border: none;
+      font-size: 1.30rem;
+      padding: 1.3rem 1.1rem;
+      border-radius: 9px;
+      text-align: left;
+      text-decoration: none;
+      transition: background 0.16s, color 0.18s;
+      cursor: pointer;
+      outline: none;
+    }
+    .menu-link:hover,
+    .menu-link:focus {
+      background: #efe6fd;
+      color: #1E1E1E;
+    }
+    .close-menu-btn {
+      background: #EFE6FD;
+      color: #5227a3;
+      border: none;
+      font-weight: 700;
+      border-radius: 12px;
+      padding: 0.9rem 1.7rem;
+      margin: 32px auto 0 auto;
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: block;
+    }
+    @keyframes fadeInRight {
+      from { opacity: 0; right: -120px;}
+      to { opacity: 1; right: 0;}
+    }
+    @media (max-width: 700px) {
+      .header-banner {
+        height: 90px;
+        border-radius: 0 0 18px 18px;
+      }
+      .logo-nexia {
+        top: -45px;
+        left: 30%;
+        height: 200px;
+        max-width: 50vw;
+        transform: translateX(-50%);
+      }
+      .main-nav {
+        top: 20px;
+        right: 36px;
+      }
+      .menu-icon {
+        width: 45px;
+        height: 45px;
+      }
+      .redes-container {
+        gap: 0.5rem !important;
+      }
+      .icon-social {
+        width: 21px !important;
+        height: 21px !important;
+      }
+    }
+    .carrusel-portafolio {
+      width: 88vw;
+      max-width: 530px;
+      margin: 50px auto 36px auto;
+      padding: 38px 0 38px 0;
+      position: relative;
+      overflow: visible;
+    }
+    .swiper,
+    .swiper-wrapper,
+    .swiper-slide {
+      overflow: visible !important;
+    }
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      transition: filter 0.28s, transform 0.28s, z-index 0.3s;
+      z-index: 1;
+    }
+    .swiper-slide img {
+      width: 90%;
+      max-width: 320px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 7px 24px rgba(85,44,160,0.11);
+      background: #fff0;
+      transition: box-shadow 0.22s, filter 0.24s, opacity 0.22s, z-index 0.3s;
+      filter: blur(1.3px) brightness(0.93) grayscale(0.09);
+      opacity: 0.66;
+      z-index: 1;
+      object-fit: contain;
+      display: block;
+    }
+    .swiper-slide-active img {
+      width: 100%;
+      max-width: 360px;
+      height: auto;
+      filter: none;
+      opacity: 1;
+      z-index: 5;
+      box-shadow: 0 12px 34px rgba(85,44,160,0.20), 0 2px 10px #e3d8f9;
+      object-fit: contain;
+    }
+    .swiper-slide-next img,
+    .swiper-slide-prev img {
+      opacity: 0.52;
+      filter: blur(4.2px) brightness(0.85) grayscale(0.14);
+      transform: scale(0.74);
+      z-index: 2;
+    }
+    .swiper-button-next { right: -80px; }
+    .swiper-button-prev { left: -80px; }
+    @media (max-width: 900px) {
+      .carrusel-portafolio { max-width: 98vw; }
+      .swiper-button-next { right: -20px; }
+      .swiper-button-prev { left: -20px; }
+    }
+    @media (max-width: 600px) {
+      .carrusel-portafolio { max-width: 100vw; }
+      .swiper-button-next { right: -6px; }
+      .swiper-button-prev { left: -6px; }
+    }
+    .hero-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin: 0 auto 34px auto;
+      max-width: 540px;
+      padding: 32px 18px 14px 18px;
+      position: relative;
+    }
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.4rem;
+      letter-spacing: 1.1px;
+      color: #5227a3;
+      margin-bottom: 19px;
+      line-height: 1.13;
+      text-transform: uppercase;
+      text-shadow: 0 1px 12px #fff, 0 0px 14px #efe6fd;
+    }
+    .hero-desc {
+      font-size: 1.13rem;
+      color: #6557a8;
+      font-weight: 600;
+      margin-bottom: 26px;
+      max-width: 430px;
+      line-height: 1.45;
+    }
+    .hero-btn {
+      background: linear-gradient(90deg,#6C3BD2 10%, #E765F6 90%);
+      color: #fff;
+      border: none;
+      padding: 1.15rem 2.7rem;
+      border-radius: 32px;
+      font-size: 1.13rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      letter-spacing: 1px;
+      box-shadow: 0 6px 28px rgba(108,59,210,0.14), 0 2px 8px #e3d8f9;
+      transition: background 0.2s, transform 0.13s, box-shadow 0.18s;
+      position: relative;
+      overflow: hidden;
+      outline: none;
+      margin: 0 auto;
+      text-decoration: none;
+      cursor: pointer;
+      animation: popInUp 0.72s cubic-bezier(.39,.575,.56,1.000) 0.5s both;
+    }
+    .hero-btn:hover, .hero-btn:focus {
+      background: linear-gradient(95deg, #9048F8 8%, #E765F6 92%);
+      transform: scale(1.04);
+    }
+    @keyframes popInUp {
+      from { opacity: 0; transform: translateY(35px) scale(0.88);}
+      65% { opacity: 1; transform: translateY(-4px) scale(1.04);}
+      to { opacity: 1; transform: none; }
+    }
+    .redes-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2.2rem;
+      margin: 36px auto 0 auto;
+      padding: 0;
+      max-width: 420px;
+      z-index: 10;
+      position: relative;
+    }
+    .redes-link, .wa-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      color: #111;
+      text-decoration: none;
+      font-size: 1.13rem;
+      background: none;
+      border-radius: 0;
+      padding: 0;
+      box-shadow: none;
+      border: none;
+      transition: color 0.18s;
+    }
+    .redes-link:hover,
+    .wa-btn:hover {
+      color: #6C3BD2;
+    }
+    .icon-social {
+      width: 27px;
+      height: 27px;
+      display: inline-block;
+      vertical-align: middle;
+      filter: grayscale(1) brightness(0.1) !important;
+      transition: width 0.2s, height 0.2s;
+    }
+    footer {
+      background: #EAEAEA;
+      text-align: center;
+      padding: 1.5rem 1rem 1.2rem 1rem;
+      font-size: 1rem;
+      font-family: 'Montserrat', Arial, sans-serif;
+      color: #1E1E1E;
+      margin-top: 3rem;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      z-index: 10;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div class="filtro-fondo"></div>
+  <!-- Header profesional con logo SVG y menú -->
+  <header class="header-banner">
+    <img
+      src="https://res.cloudinary.com/dzy2rrwao/image/upload/v1748275301/logo_Nexia_PNG_sin_fondo_acomodado_f6ov3b.svg"
+      alt="Logo Nexia Studio"
+      class="logo-nexia"
+    >
+    <nav class="main-nav">
+      <button class="menu-btn" id="menuToggle" aria-label="Abrir menú">
+        <svg class="menu-icon" viewBox="0 0 48 48">
+          <rect y="10" width="48" height="6" rx="3"/>
+          <rect y="21" width="48" height="6" rx="3"/>
+          <rect y="32" width="48" height="6" rx="3"/>
+        </svg>
+      </button>
+      <div class="menu-list" id="menuList">
+        <a class="menu-link" href="index.html">Inicio</a>
+        <a class="menu-link" href="servicios.html">Servicios</a>
+        <a class="menu-link" href="planes.html">Planes</a>
+        <a class="menu-link" href="portfolios.html">Portafolio</a>
+        <a class="menu-link" href="sobre nosotros.html">Sobre nosotros</a>
+        <a class="menu-link" href="contacto.html">Contáctanos</a>
+        <button class="close-menu-btn" id="closeMenuBtn">Cerrar menú</button>
+      </div>
+    </nav>
+  </header>
+  <section class="hero-section">
+    <div class="hero-title">
+      Impulsa tu presencia digital
+    </div>
+    <div class="hero-desc">
+      Conseguí más clientes, más visibilidad y más impacto: contenido profesional, diseño atractivo y tecnología sin complicaciones.
+    </div>
+    <a class="hero-btn" href="planes.html">Quiero potenciar mi marca</a>
+  </section>
+  <div class="carrusel-portafolio" id="portafolio">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="https://res.cloudinary.com/dzy2rrwao/image/upload/w_350,c_limit,q_90,f_auto/v1748198656/foto1_kqitro.jpg" alt="Portafolio 1" loading="lazy"/></div>
+        <div class="swiper-slide"><img src="https://res.cloudinary.com/dzy2rrwao/image/upload/w_350,c_limit,q_90,f_auto/v1748452046/crunchy_navidad3_shmcmi.png" alt="Portafolio 2" loading="lazy"/></div>
+        <div class="swiper-slide"><img src="https://res.cloudinary.com/dzy2rrwao/image/upload/w_350,c_limit,q_90,f_auto/v1748526025/portada_del_libro_aprende_IA_40_xhn42o.jpg" alt="Portafolio 3" loading="lazy"/></div>
+        <div class="swiper-slide"><img src="https://res.cloudinary.com/dzy2rrwao/image/upload/w_350,c_limit,q_90,f_auto/v1748452046/crunchy_navidad1_i7w6n9.png" alt="Portafolio 4" loading="lazy"/></div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </div>
+  <div class="redes-container">
+    <a class="redes-link" href="https://www.instagram.com/nexiastudio.ar/" target="_blank" title="Instagram">
+      <img class="icon-social" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
+      Instagram
+    </a>
+    <a class="redes-link" href="https://www.facebook.com/samueltorres.vyf/" target="_blank" title="Facebook">
+      <img class="icon-social" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook">
+      Facebook
+    </a>
+    <a class="wa-btn" href="https://wa.me/5491170766781?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20Nexia%20Studio.%20%C2%BFPodr%C3%ADan%20darme%20m%C3%A1s%20informaci%C3%B3n%3F
+" target="_blank" title="WhatsApp">
+      <img class="icon-social" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp">
+      WhatsApp
+    </a>
+  </div>
+  <footer>
+    <p>© 2025 Nexia Studio — Todos los derechos reservados</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    // Menú hamburguesa universal
+    const menuToggle = document.getElementById('menuToggle');
+    const menuList = document.getElementById('menuList');
+    const closeMenuBtn = document.getElementById('closeMenuBtn');
+    menuToggle.addEventListener('click', () => {
+      menuList.classList.toggle('open');
+      document.body.style.overflow = menuList.classList.contains('open') ? "hidden" : "";
+    });
+    closeMenuBtn.addEventListener('click', () => {
+      menuList.classList.remove('open');
+      document.body.style.overflow = "";
+    });
+    window.addEventListener('keydown', e => {
+      if (e.key === "Escape") {
+        menuList.classList.remove('open');
+        document.body.style.overflow = "";
+      }
+    });
+    window.addEventListener('click', e => {
+      if (
+        menuList.classList.contains('open') &&
+        !menuList.contains(e.target) &&
+        !menuToggle.contains(e.target)
+      ) {
+        menuList.classList.remove('open');
+        document.body.style.overflow = "";
+      }
+    });
+    // Swiper Carrusel
+    const swiper = new Swiper('.swiper', {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      loop: true,
+      initialSlide: 1,
+      spaceBetween: 0,
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 10,
+        depth: 140,
+        modifier: 1,
+        slideShadows: false,
+        scale: 0.72,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      lazy: true,
+      keyboard: { enabled: true },
+      breakpoints: {
+        600: {
+          coverflowEffect: { depth: 90, scale: 0.68, stretch: 7 },
+          spaceBetween: 0,
+        }
+      }
+    });
+  </script>
+</body>
+</html>
