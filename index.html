@@ -342,6 +342,89 @@
       z-index: 10;
       position: relative;
     }
+    .portafolio-img-container {
+  width: 100vw;
+  max-width: 540px;
+  margin: 40px auto 32px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    position: relative;   /* <-- Agrégalo aquí */
+  z-index: 10;          /* <-- Y esto también */
+}
+.portafolio-img {
+  width: 98%;
+  max-width: 500px;
+  border-radius: 26px;
+
+  background: #fff0;
+  object-fit: contain;
+  display: block;
+}
+@media (max-width: 700px) {
+  .portafolio-img-container { max-width: 100vw; }
+  .portafolio-img { max-width: 97vw; border-radius: 18px; }
+}
+.corazones-animados {
+  position: absolute;
+  bottom: 370px; /* Ajusta si quieres más cerca/lejos de la base de la imagen */
+  left: 85%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  z-index: 20;
+}
+
+.corazon {
+  position: absolute;
+  width: 32px;
+  height: 30px;
+  opacity: 0.9;
+  animation: subirCorazon 2.3s infinite;
+}
+
+.corazon:nth-child(1) {
+  left: -25px;
+  animation-delay: 0s;
+  animation-duration: 2.4s;
+  opacity: 0.8;
+  transform: scale(0.95) rotate(-12deg);
+}
+.corazon:nth-child(2) {
+  left: 0;
+  animation-delay: 0.7s;
+  animation-duration: 2s;
+  opacity: 1;
+  transform: scale(1.08) rotate(6deg);
+}
+.corazon:nth-child(3) {
+  left: 25px;
+  animation-delay: 1.5s;
+  animation-duration: 2.8s;
+  opacity: 0.85;
+  transform: scale(0.83) rotate(15deg);
+}
+
+@keyframes subirCorazon {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(1);
+  }
+  10% {
+    opacity: 0.9;
+  }
+  40% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-90px) scale(1.2);
+  }
+}
   </style>
 </head>
 <body>
@@ -381,18 +464,24 @@
     </div>
     <a class="hero-btn" href="planes.html">Quiero potenciar mi marca</a>
   </section>
-  <div class="carrusel-portafolio" id="portafolio">
-    <div class="swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://res.cloudinary.com/dzy2rrwao/image/upload/w_350,c_limit,q_90,f_auto/v1748198656/foto1_kqitro.jpg" alt="Portafolio 1" loading="lazy"/></div>
-        <div class="swiper-slide"><img src="https://res.cloudinary.com/dzy2rrwao/image/upload/w_350,c_limit,q_90,f_auto/v1748452046/crunchy_navidad3_shmcmi.png" alt="Portafolio 2" loading="lazy"/></div>
-        <div class="swiper-slide"><img src="https://res.cloudinary.com/dzy2rrwao/image/upload/w_350,c_limit,q_90,f_auto/v1748526025/portada_del_libro_aprende_IA_40_xhn42o.jpg" alt="Portafolio 3" loading="lazy"/></div>
-        <div class="swiper-slide"><img src="https://res.cloudinary.com/dzy2rrwao/image/upload/w_350,c_limit,q_90,f_auto/v1748452046/crunchy_navidad1_i7w6n9.png" alt="Portafolio 4" loading="lazy"/></div>
-      </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-    </div>
+  <div class="portafolio-img-container" id="portafolio">
+  <img
+    src="https://res.cloudinary.com/dzy2rrwao/image/upload/v1749754084/bot_arte_nexia_mebxzy.webp"
+    alt="Portafolio Nexia Studio"
+    class="portafolio-img"
+    loading="lazy"
+  />
+   <!-- Corazones animados tipo Instagram -->
+  <div class="corazones-animados">
+    <svg class="corazon" viewBox="0 0 32 29.6"><path fill="#e74c3c" d="M23.6,0c-2.8,0-5.4,1.7-6.6,4.3C15.8,1.7,13.2,0,10.4,0C4.7,0,0,4.7,0,10.4c0,11.1,16,19.2,16,19.2 s16-8.1,16-19.2C32,4.7,27.3,0,23.6,0z"/></svg>
+    <svg class="corazon" viewBox="0 0 32 29.6"><path fill="#e74c3c" d="M23.6,0c-2.8,0-5.4,1.7-6.6,4.3C15.8,1.7,13.2,0,10.4,0C4.7,0,0,4.7,0,10.4c0,11.1,16,19.2,16,19.2 s16-8.1,16-19.2C32,4.7,27.3,0,23.6,0z"/></svg>
+    <svg class="corazon" viewBox="0 0 32 29.6"><path fill="#e74c3c" d="M23.6,0c-2.8,0-5.4,1.7-6.6,4.3C15.8,1.7,13.2,0,10.4,0C4.7,0,0,4.7,0,10.4c0,11.1,16,19.2,16,19.2 s16-8.1,16-19.2C32,4.7,27.3,0,23.6,0z"/></svg>
+  <svg class="corazon" viewBox="0 0 32 29.6"><path fill="#e74c3c" d="M23.6,0c-2.8,0-5.4,1.7-6.6,4.3C15.8,1.7,13.2,0,10.4,0C4.7,0,0,4.7,0,10.4c0,11.1,16,19.2,16,19.2 s16-8.1,16-19.2C32,4.7,27.3,0,23.6,0z"/></svg>
+    <svg class="corazon" viewBox="0 0 32 29.6"><path fill="#e74c3c" d="M23.6,0c-2.8,0-5.4,1.7-6.6,4.3C15.8,1.7,13.2,0,10.4,0C4.7,0,0,4.7,0,10.4c0,11.1,16,19.2,16,19.2 s16-8.1,16-19.2C32,4.7,27.3,0,23.6,0z"/></svg>
+    <svg class="corazon" viewBox="0 0 32 29.6"><path fill="#e74c3c" d="M23.6,0c-2.8,0-5.4,1.7-6.6,4.3C15.8,1.7,13.2,0,10.4,0C4.7,0,0,4.7,0,10.4c0,11.1,16,19.2,16,19.2 s16-8.1,16-19.2C32,4.7,27.3,0,23.6,0z"/></svg>
   </div>
+</div>
+</div>
   <div class="redes-container">
     <a class="redes-link" href="https://www.instagram.com/nexiastudio.ar/" target="_blank" title="Instagram">
       <img class="icon-social" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
@@ -411,7 +500,6 @@
   <footer>
     <p>© 2025 Nexia Studio — Todos los derechos reservados</p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
     // Menú hamburguesa universal
     const menuToggle = document.getElementById('menuToggle');
@@ -439,36 +527,6 @@
       ) {
         menuList.classList.remove('open');
         document.body.style.overflow = "";
-      }
-    });
-    // Swiper Carrusel
-    const swiper = new Swiper('.swiper', {
-      effect: "coverflow",
-      grabCursor: true,
-      centeredSlides: true,
-      slidesPerView: "auto",
-      loop: true,
-      initialSlide: 1,
-      spaceBetween: 0,
-      coverflowEffect: {
-        rotate: 0,
-        stretch: 10,
-        depth: 140,
-        modifier: 1,
-        slideShadows: false,
-        scale: 0.72,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      lazy: true,
-      keyboard: { enabled: true },
-      breakpoints: {
-        600: {
-          coverflowEffect: { depth: 90, scale: 0.68, stretch: 7 },
-          spaceBetween: 0,
-        }
       }
     });
   </script>
