@@ -55,11 +55,12 @@
       transparent 8px
     ),
     /* Degradado opaco */
-    linear-gradient(120deg, #6C3BD2 60%, #E765F6 100%);
-  border-radius: 0 0 28px 28px;
+    linear-gradient(120deg, rgba(108,59,210,0.8) 60%, rgba(231,101,246,0.8) 100%);   backdrop-filter: blur(10px);
+    border-radius: 0 0 28px 28px;
   box-shadow: 0 3px 30px rgba(80,56,170,0.09);
   z-index: 20;
   overflow: visible;
+  
 }
     .logo-nexia {
       position: absolute;
@@ -110,7 +111,7 @@
       position: fixed;
       top: 0; right: 0;
       width: 78vw; max-width: 340px; height: 100vh;
-      background:  #E765F6;
+      background:  linear-gradient(120deg, rgba(108,59,210,0.98) 60%, rgba(231,101,246,0.98) 100%);
       box-shadow: -2px 0 24px rgba(108,59,210,0.91);
       padding: 120px 24px 32px;
       z-index: 200;
@@ -358,30 +359,8 @@
       .portafolio-img-container { max-width: 100vw; }
       .portafolio-img { max-width: 97vw; border-radius: 18px; }
     }
-    .corazones-animados {
-      position: absolute;
-      bottom: 370px;
-      left: 85%;
-      transform: translateX(-50%);
-      pointer-events: none;
-      width: 0; height: 0; z-index: 20;
-    }
-    .corazon {
-      position: absolute;
-      width: 32px; height: 30px;
-      opacity: 0.9;
-      animation: subirCorazon 2.3s infinite;
-    }
-    .corazon:nth-child(1) {
-      left: -25px; animation-delay: 0s; animation-duration: 2.4s; opacity: 0.8; transform: scale(0.95) rotate(-12deg);
-    }
-    .corazon:nth-child(2) {
-      left: 0; animation-delay: 0.7s; animation-duration: 2s; opacity: 1; transform: scale(1.08) rotate(6deg);
-    }
-    .corazon:nth-child(3) {
-      left: 25px; animation-delay: 1.5s; animation-duration: 2.8s; opacity: 0.85; transform: scale(0.83) rotate(15deg);
-    }
-    @keyframes subirCorazon {
+  
+    {
       0%   { opacity: 0; transform: translateY(0) scale(1); }
       10%  { opacity: 0.9; }
       40%  { opacity: 1; }
@@ -408,7 +387,6 @@
       </button>
       <div class="menu-list" id="menuList">
         <a class="menu-link" href="index.html">Inicio</a>
-    
         <a class="menu-link" href="portfolios.html">Portafolio</a>
         <a class="menu-link" href="sobre nosotros.html">Sobre nosotros</a>
         <a class="menu-link" href="contacto.html">Contáctanos</a>
@@ -417,33 +395,28 @@
     </nav>
   </header>
   <section class="hero-section">
-    <div class="hero-title">Impulsa tu presencia digital</div>
-    <a class="hero-btn" href="https://wa.me/5491170766781?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20Nexia%20Studio.%20%C2%BFPodr%C3%ADan%20darme%20m%C3%A1s%20informaci%C3%B3n%3F">Quiero potenciar mi marca</a>
+   <div class="hero-title" style="font-size:2rem; color:#434343;">
+  Hacemos que 
+  <span style="color:#6C3BD2; font-size:2.4rem;">tu marca</span> 
+  se vea de primera
+</div>
+    <a class="hero-btn" href="https://wa.me/5491170766781?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20una%20prueba%20de%20Nexia%20Studio%20para%20mi%20empresa.
+">Pedí tu prueba gratis hoy</a>
   </section>
   <div class="portafolio-img-container" id="portafolio">
     <img
-      src="https://res.cloudinary.com/dzy2rrwao/image/upload/v1749754084/bot_arte_nexia_mebxzy.webp"
+      src="https://res.cloudinary.com/dzy2rrwao/image/upload/v1756589558/bot_arte_nexia_para_la_pagina_new2_jcvibl.png"
       alt="Portafolio Nexia Studio"
       class="portafolio-img"
       loading="lazy"
     />
-    <div class="corazones-animados">
-      <svg class="corazon" viewBox="0 0 32 29.6"><path fill="#e74c3c" d="M23.6,0c-2.8,0-5.4,1.7-6.6,4.3C15.8,1.7,13.2,0,10.4,0C4.7,0,0,4.7,0,10.4c0,11.1,16,19.2,16,19.2 s16-8.1,16-19.2C32,4.7,27.3,0,23.6,0z"/></svg>
-      <svg class="corazon" viewBox="0 0 32 29.6"><path fill="#e74c3c" d="M23.6,0c-2.8,0-5.4,1.7-6.6,4.3C15.8,1.7,13.2,0,10.4,0C4.7,0,0,4.7,0,10.4c0,11.1,16,19.2,16,19.2 s16-8.1,16-19.2C32,4.7,27.3,0,23.6,0z"/></svg>
-      <svg class="corazon" viewBox="0 0 32 29.6"><path fill="#e74c3c" d="M23.6,0c-2.8,0-5.4,1.7-6.6,4.3C15.8,1.7,13.2,0,10.4,0C4.7,0,0,4.7,0,10.4c0,11.1,16,19.2,16,19.2 s16-8.1,16-19.2C32,4.7,27.3,0,23.6,0z"/></svg>
-      <svg class="corazon" viewBox="0 0 32 29.6"><path fill="#e74c3c" d="M23.6,0c-2.8,0-5.4,1.7-6.6,4.3C15.8,1.7,13.2,0,10.4,0C4.7,0,0,4.7,0,10.4c0,11.1,16,19.2,16,19.2 s16-8.1,16-19.2C32,4.7,27.3,0,23.6,0z"/></svg>
-      <svg class="corazon" viewBox="0 0 32 29.6"><path fill="#e74c3c" d="M23.6,0c-2.8,0-5.4,1.7-6.6,4.3C15.8,1.7,13.2,0,10.4,0C4.7,0,0,4.7,0,10.4c0,11.1,16,19.2,16,19.2 s16-8.1,16-19.2C32,4.7,27.3,0,23.6,0z"/></svg>
-      <svg class="corazon" viewBox="0 0 32 29.6"><path fill="#e74c3c" d="M23.6,0c-2.8,0-5.4,1.7-6.6,4.3C15.8,1.7,13.2,0,10.4,0C4.7,0,0,4.7,0,10.4c0,11.1,16,19.2,16,19.2 s16-8.1,16-19.2C32,4.7,27.3,0,23.6,0z"/></svg>
-    </div>
   </div>
   <div class="redes-container">
     <a class="redes-link" href="https://www.instagram.com/nexiastudio.ar/" target="_blank" title="Instagram">
       <img class="icon-social" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
       Instagram
     </a>
-    <a class="redes-link" href="https://www.facebook.com/samueltorres.vyf/" target="_blank" title="Facebook">
-      <img class="icon-social" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook">
-      Facebook
+    
     </a>
     <a class="wa-btn" href="https://wa.me/5491170766781?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20Nexia%20Studio.%20%C2%BFPodr%C3%ADan%20darme%20m%C3%A1s%20informaci%C3%B3n%3F" target="_blank" title="WhatsApp">
       <img class="icon-social" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp">
@@ -493,4 +466,3 @@
   </script>
 </body>
 </html>
-
