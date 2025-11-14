@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Qué hacemos en Nexia Studio?</title>
+  <link rel="icon" href="https://res.cloudinary.com/dzy2rrwao/image/upload/v1748457001/logo_sin_fondoNexia_wxksfq.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+    body {
+      background-image: url("https://res.cloudinary.com/dzy2rrwao/image/upload/v1748105490/5._Clientes_q8qe7o.png");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
+      color: #1E1E1E;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    .filtro-fondo {
+      position: fixed;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(247,246,250,0.66);
+      pointer-events: none;
+    }
+    .header-banner {
+      width: 100%;
+      height: 130px;
+      background: linear-gradient(120deg, rgba(108,59,210,0.92) 60%, rgba(231,101,246,0.25) 100%);
+      border-radius: 0 0 28px 28px;
+      box-shadow: 0 3px 30px rgba(80,56,170,0.09);
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0;
+    }
+    .logo-nexia {
+      position: absolute;
+      left: 50%;
+      top: -90px;
+      transform: translateX(-50%);
+      height: 350px;
+      width: auto;
+      max-width: 92vw;
+      background: none;
+      pointer-events: auto;
+      opacity: 0;
+      animation: logoFadeInUp 2.5s ease 0.45s both;
+      transition: height 0.25s, top 0.25s;
+    }
+    @keyframes logoFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -20px) scale(0.96);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -8px) scale(1.02);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(-50%, -2px) scale(0.995);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 60px 0;
+      position: relative;
+      z-index: 2;
+    }
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.447);
+    }
+    .header-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      width: 100%;
+      max-width: 1000px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+    header h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      text-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.5);
+      color: #6C3BD2;
+      line-height: 1.4;
+      text-align: left;
+      white-space: normal;
+      overflow-wrap: break-word;
+    }
+    header .hero-image {
+      flex: 1 1 40%;
+      max-width: 400px;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+    .brief {
+      text-align: center;
+      margin: 20px auto;
+      font-size: 1.5rem;
+      font-weight: 550;
+    }
+  header .cta-button {
+  background-color: #6C3BD2;
+  color: #FFFFFF;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none !important;
+}
+.cta-button, /* 🔹 Efecto de brillo cálido pulsante y zoom al pasar el mouse */
+.whatsapp-button {
+  box-shadow: 0 0 12px rgba(255, 240, 200, 0.5);
+  animation: glowWarm 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+   text-decoration: none;
+}
+@keyframes glowWarm {
+  0% { box-shadow: 0 0 10px rgba(255, 230, 150, 0.5); }
+  50% { box-shadow: 0 0 25px rgba(255, 230, 150, 0.9); }
+  100% { box-shadow: 0 0 10px rgba(255, 230, 150, 0.5); }
+}
+.cta-button:hover,
+.whatsapp-button:hover {
+  transform: scale(1.05);
+}
+    .before-after {
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+      margin-bottom: 80px;
+    }
+    .example {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+      padding-top: 30px;
+      border-top: 4px solid #6C3BD2;
+      transition: all 0.3s ease;
+    }
+    .example:hover .image-box img {
+      transform: scale(1.03);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+    .example-images {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .example-images .image-box {
+      width: 250px;
+      height: 450px;
+      border-radius: 12px;
+      overflow: hidden;
+      background-color: #E0E0E0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    .square-example .image-box {
+      width: 350px;
+      height: 350px;
+    }
+    .coffee-layout {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .coffee-layout .image-box.vertical {
+  width: 300px;
+  height: auto;
+  max-height: 520px;
+}
+.coffee-layout .image-box.horizontal {
+  width: 450px;
+  height: auto;
+  max-height: 350px;
+}
+    .example-images .image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .example p.benefit {
+  font-weight: 600;
+  font-size: 1.3rem;
+  max-width: 650px;        /* más espacio visual */
+  text-align: left;        /* lectura más profesional */
+  line-height: 1.55;       /* más respiración entre líneas */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.15); /* contraste suave */
+}
+    /* 🔹 Bloque creativo final */
+    .creative-block {
+      text-align: center;
+      margin: 60px auto 60px;
+      padding: 40px 0;
+      border-top: 3px solid #6C3BD2;
+      border-bottom: 3px solid #6C3BD2;
+      max-width: 800px;
+      font-size: 1.3rem;
+      color: #6C3BD2;
+      font-weight: 600;
+      line-height: 1.7;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+      background: #ffffff00;
+      border-radius: 8px;
+      z-index: 2;
+      position: relative;
+    }
+    .final-cta {
+      text-align: center;
+      padding: 60px 0;
+      border-radius: 12px;
+    }
+    .final-cta h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .final-cta .whatsapp-button {
+      background-color: #25D366;
+      color: #FFFFFF;
+      padding: 18px 35px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .final-cta .whatsapp-button:hover {
+      transform: scale(1.05);
+    }
+    header,
+    .before-after,
+    .final-cta {
+      position: relative;
+      z-index: 2;
+    }
+.example:last-of-type .image-box { /* Ajuste exclusivo para el último bloque en escritorio */
+  height: auto;
+  max-height: 500px;
+  width: 350px;
+}
+.btn-volver {
+  display: block;
+  margin: 1.6rem auto 0 auto;
+  background: #EAEAEA;
+  color: #6C3BD2;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.08rem;
+  padding: 0.9rem 2.2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 2px 10px rgba(60,28,123,0.08);
+  border: none;
+  transition: background 0.16s, color 0.16s;
+  text-align: center;
+  width: fit-content;
+  cursor: pointer;
+}
+.btn-volver:hover {
+  background: #6C3BD2;
+  color: #fff;
+}
+    /* 🔹 Ajustes responsivos */
+    @media (max-width: 1024px) {
+      header h1 { font-size: 2.4rem; }
+      header h2 { font-size: 1.5rem; text-align: center; }
+      .hero-image { max-width: 350px; }
+      .brief { font-size: 1.3rem; }
+      .cta-button { padding: 16px 32px; font-size: 1.05rem; }
+    }
+    @media (max-width: 768px) {
+      header { padding: 40px 0; }
+      header h1 { font-size: 1.8rem; }
+      header h2 { font-size: 1.2rem; text-align: center; }
+      .header-content { flex-direction: column; gap: 25px; }
+      .hero-image { max-width: 280px; }
+      .brief { margin: 25px 0; font-size: 1.1rem; width: 90%; }
+      .cta-button,
+      .whatsapp-button {
+        width: 90%;
+        max-width: 320px;
+        font-size: 1.15rem;
+        padding: 18px 0;
+      }
+      .container { padding: 20px 0; }
+      .example-images { flex-direction: column; align-items: center; }
+      .example-images .image-box {
+        width: 95%;
+        height: auto;
+        max-width: 420px;
+      }
+      .coffee-layout .image-box.vertical,
+.coffee-layout .image-box.horizontal {
+  width: 95%;
+  height: auto;
+  max-width: 420px;
+}
+      .example p.benefit {
+        font-size: 1.1rem;
+        padding: 0 10px;
+      }
+      .logo-nexia {
+        top: -49px;
+        height: 250px;
+      }
+      .creative-block {
+        font-size: 1.1rem;
+        padding: 30px 15px;
+      }
+      .final-cta h2 {
+        font-size: 1.6rem;
+        padding: 0 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="filtro-fondo"></div>
+  <header class="header-banner">
+    <img src="https://res.cloudinary.com/dzy2rrwao/image/upload/v1748275301/logo_Nexia_PNG_sin_fondo_acomodado_f6ov3b.svg" alt="Logo Nexia Studio" class="logo-nexia" loading="lazy">
+  </header>
+  <header>
+    <h1>¿Qué hacemos en Nexia Studio?</h1>
+    <div class="header-content">
+      <h2>Convierte tus productos en imágenes profesionales que posicionan tu marca al nivel de las grandes empresas.</h2>
+      <img src="https://res.cloudinary.com/dzy2rrwao/image/upload/v1762283587/paraweb2_dd6j8c.png" alt="Persona sosteniendo el logo Nexia" class="hero-image" loading="lazy">
+    </div>
+    <section class="brief">
+      <p>Trabajamos con emprendedores y marcas que crean productos propios. Combinamos talento humano e inteligencia artificial para que tu producto se vea profesional y atractivo, con el nivel visual de una gran marca.</p>
+    </section>
+    <a class="cta-button" 
+   href="https://wa.me/5491170766781?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20Nexia%20Studio.%20%C2%BFPodr%C3%ADan%20darme%20m%C3%A1s%20informaci%C3%B3n%3F">
+  Contáctanos y transforma tu marca
+</a>
+  </header>
+  <section class="container before-after">
+    <div class="example">
+      <p class="benefit">Ahorra en costos de producción, modelos y transporte, mostrando tu marca como en un catálogo profesional.</p>
+      <div class="example-images">
+        <div class="image-box">
+          <img src="https://res.cloudinary.com/dzy2rrwao/image/upload/v1762197922/Agotados_muchas_gracias_Hoy_Nueva_Actualizaci%C3%B3n_Hoy_9pm_Hoy_Nueva_Actualizaci%C3%B3n_eku5j7.webp" alt="Prenda colgada en percha (antes)"loading="lazy">
+        </div>
+        <div class="image-box">
+          <img src="https://res.cloudinary.com/dzy2rrwao/image/upload/v1762197909/vest_optimized_g62zxv.jpg" alt="Modelo vistiendo la prenda (después)" loading="lazy">
+        </div>
+        <div class="image-box">
+          <img src="https://res.cloudinary.com/dzy2rrwao/image/upload/v1762197907/ComfyUI_00008_optimized_efftcz.jpg" alt="Prenda tipo catálogo digital" loading="lazy">
+        </div>
+      </div>
+    </div>
+    <div class="example square-example">
+      <p class="benefit">Resaltá los detalles de tu producto y aumentá su percepción de valor sin sesiones fotográficas costosas. Con Nexia, conservamos fidelidad y calidad, evitando los errores comunes de otras herramientas automáticas.</p>
+      <div class="example-images">
+        <div class="image-box">
+          <img src="https://res.cloudinary.com/dzy2rrwao/image/upload/v1762453024/foto-producto-web-1_iyvr6g.png" alt="Aros sobre mesa (antes)" loading="lazy">
+        </div>
+        <div class="image-box">
+          <img src="https://res.cloudinary.com/dzy2rrwao/image/upload/v1762453024/foto-producto-web-2_dem12a.png" alt="Aros sobre mesa (después)" loading="lazy">
+        </div>
+      </div>
+    </div>
+    <div class="example coffee-example">
+      <p class="benefit">Conecta con tu público a través de una experiencia visual cuidada, coherente y de calidad. En Nexia, cada detalle está pensado para transmitir profesionalismo y fortalecer la identidad de tu marca.</p>
+      <div class="example-images coffee-layout">
+        <div class="image-box vertical">
+          <img src="https://res.cloudinary.com/dzy2rrwao/image/upload/v1762539138/62web_wq1kfs.png" alt="Taza de café simple (antes)" loading="lazy">
+        </div>
+        <div class="image-box vertical">
+          <img src="https://res.cloudinary.com/dzy2rrwao/image/upload/v1762539138/6web_dd4ccq.png" alt="Foto con ambiente cálido (después)" loading="lazy">
+        </div>
+         <div class="image-box horizontal">
+          <img src="https://res.cloudinary.com/dzy2rrwao/image/upload/v1762539138/h3web_qb3hew.png" alt="Taza de café ambientada (intermedia)" loading="lazy">
+        </div>
+    </div>
+    <div class="example">
+      <p class="benefit">Transformá tus productos en presentaciones visuales claras, atractivas y listas para vender. En Nexia, damos forma a imágenes que comunican tu valor con estilo y precisión.</p>
+     <div class="example-images last-block">
+  <div class="image-box">
+    <img src="https://res.cloudinary.com/dzy2rrwao/image/upload/v1763051515/kizz1_web_iezecq.png" alt="Imagen nueva 1" loading="lazy">
+  </div>
+  <div class="image-box">
+    <img src="https://res.cloudinary.com/dzy2rrwao/image/upload/v1763051514/kizz_mokup_web_daqpsn.png" alt="Imagen nueva 2" loading="lazy">
+  </div>
+  <div class="image-box">
+    <img src="https://res.cloudinary.com/dzy2rrwao/image/upload/v1762999649/ejemploweb20_nufyge.png" alt="Mockup final"loading="lazy">
+  </div>
+</div>
+  </section>
+  <section class="creative-block">
+    <p>En Nexia, cada proyecto es una oportunidad para crear algo único.<br>
+    Lo que ves aquí es solo una muestra: podemos recrear cualquier idea, concepto o estilo visual que imagines.<br>
+    Porque cuando la creatividad y la tecnología trabajan juntas, el único límite es la imaginación.</p>
+  </section>
+  <section class="final-cta">
+    <h2>Tu marca puede verse así desde hoy.</h2>
+   <a 
+  class="whatsapp-button" 
+  href="https://wa.me/5491170766781?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20Nexia%20Studio.%20%C2%BFPodr%C3%ADan%20darme%20m%C3%A1s%20informaci%C3%B3n%3F" 
+  target="_blank" 
+  rel="noopener noreferrer">
+  Contáctanos por WhatsApp
+</a>
+  </section>
+  <button class="btn-volver" onclick="window.history.back()">← Volver</button>
+  <footer>
+  <p>© 2025 Nexia Studio — Todos los derechos reservados</p>
+</footer>
+</body>
+</html>
