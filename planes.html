@@ -1,443 +1,195 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Planes | Nexia Studio</title>
-  <link rel="icon" href="https://res.cloudinary.com/dzy2rrwao/image/upload/v1748457001/logo_sin_fondoNexia_wxksfq.png" type="image/png">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Política de Privacidad — Nexia Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+    :root {
+      --bg:      #06060e;
+      --surface: #0d0d1a;
+      --card:    #0f0f1f;
+      --purple:  #8B3CF7;
+      --purple2: #a259ff;
+      --purple3: #c49dff;
+      --text:    #f0eeff;
+      --muted:   #6a6680;
+      --border:  rgba(139,60,247,0.15);
+      --border2: rgba(255,255,255,0.06);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      margin: 0;
-      font-family: 'Montserrat', Arial, sans-serif;
-      background: url('https://res.cloudinary.com/dzy2rrwao/image/upload/v1748105490/5._Clientes_q8qe7o.png') center center no-repeat;
-      background-size: cover;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 300;
       min-height: 100vh;
-      color: #1E1E1E;
-      position: relative;
     }
-    .filtro-fondo {
-      position: fixed;
-      z-index: 0;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      background: rgba(247,246,250,0.94);
-      pointer-events: none;
+
+    /* NAV */
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: rgba(6,6,14,0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border2);
+      position: sticky; top: 0; z-index: 100;
     }
-    /* --- NUEVO HEADER Y LOGO INDEPENDIENTE --- */
-    .header-banner {
-      width: 100%;
-      height: 130px;
-      background: 
-        linear-gradient(120deg, rgba(108,59,210,0.92) 60%, rgba(231,101,246,0.25) 100%),
-        url('https://res.cloudinary.com/dzy2rrwao/image/upload/v1748105490/5._Clientes_q8qe7o.png') center center no-repeat;
-      background-size: cover;
-      border-radius: 0 0 28px 28px;
-      box-shadow: 0 3px 30px rgba(80,56,170,0.09);
-      position: relative;
-      z-index: 10;
-      overflow: visible;
-      display: block;
-      padding: 0;
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: .08em; color: var(--text); text-decoration: none; }
+    .nav-back {
+      display: inline-flex; align-items: center; gap: .45rem;
+      color: var(--muted); text-decoration: none; font-size: .82rem;
+      letter-spacing: .06em; text-transform: uppercase;
+      transition: color .2s;
     }
-    .logo-nexia {
-      position: absolute;
-      left: 50%;
-      top:  -70%;
-      transform: translate(-50%, -50%);
-      height: 350px;
-      width: auto;
-      max-width: 90vw;
-      filter: drop-shadow(0 4px 16px rgba(60,28,123,0.13));
-      margin: 0;
-      z-index: 11;
-      background: none;
-      pointer-events: auto;
-      opacity: 0;
-      animation: logoFadeInUp 2.15s cubic-bezier(.39,.6,.46,1.09) 0.1s both;
+    .nav-back:hover { color: var(--purple3); }
+
+    /* CONTENT */
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 5rem 2rem 6rem;
     }
-    @keyframes logoFadeInUp {
-      0% {
-        opacity: 0;
-        transform: translate(-50%, -15px) scale(0.94);
-        filter: blur(3px) drop-shadow(0 4px 20px rgba(80,56,170,0.15));
-      }
-      50% {
-        opacity: 0.75;
-        transform: translate(-50%, -6px) scale(1.08);
-        filter: blur(0.7px) drop-shadow(0 4px 18px rgba(80,56,170,0.19));
-      }
-      80% {
-        opacity: 1;
-        transform: translate(-50%, 3px) scale(0.98);
-        filter: blur(0.1px) drop-shadow(0 4px 12px rgba(80,56,170,0.13));
-      }
-      100% {
-        opacity: 1;
-        transform: translate(-50%, 0) scale(1);
-        filter: none;
-      }
+
+    .page-tag {
+      display: inline-flex; align-items: center; gap: .5rem;
+      border: 1px solid var(--border); background: rgba(139,60,247,.07);
+      padding: .32rem .9rem; border-radius: 100px;
+      font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--purple3); margin-bottom: 1.6rem;
     }
-    @media (max-width: 700px) {
-      .header-banner {
-        height: 75px;
-        border-radius: 0 0 18px 18px;
-      }
-      .logo-nexia {
-        height: 44px;
-        max-width: 96vw;
-      }
-    }
-    /* --- RESTO DE ESTILOS IGUAL --- */
-    .planes-container {
-      max-width: 1100px;
-      margin: 50px auto 32px auto;
-      background: #fff;
-      border-radius: 24px;
-      box-shadow: 0 4px 32px rgba(80,56,170,0.09);
-      padding: 2.3rem 1.2rem 2.2rem 1.2rem;
-      position: relative;
-      z-index: 2;
-    }
-    .planes-titulo {
-      font-family: 'Montserrat', sans-serif;
-      color: #6C3BD2;
-      font-size: 2rem;
-      margin-bottom: 2.3rem;
-      text-align: center;
-      font-weight: 700;
-    }
-    .planes-grid {
-      display: flex;
-      flex-direction: row;
-      gap: 32px;
-      justify-content: center;
-      align-items: flex-start;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-    .plan-acordeon {
-      background: #faf7fd;
-      border-radius: 18px;
-      box-shadow: 0 2px 12px #e3d8f9;
-      transition: box-shadow 0.19s, transform 0.14s, height 0.28s cubic-bezier(.29,.66,.43,1.01);
-      overflow: hidden;
-      cursor: pointer;
-      margin: 0;
-      width: 300px;
-      min-width: 290px;
-      max-width: 350px;
-      height: 270px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: stretch;
-      position: relative;
-    }
-    .plan-acordeon:not(.open):hover {
-      box-shadow: 0 7px 28px #c7b6ee;
-      transform: translateY(-2px) scale(1.02);
-    }
-    .plan-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      padding: 32px 14px 24px 14px;
-      transition: background 0.17s;
-      text-align: center;
-      flex: 1 1 auto;
-    }
-    .plan-header h3 {
-      margin: 0 0 12px 0;
-      font-size: 1.15rem;
-      color: #6C3BD2;
-      font-weight: 800;
-      font-family: 'Montserrat', Arial, sans-serif;
-      letter-spacing: 0.4px;
-      display: flex;
-      align-items: center;
-      gap: 0.7em;
-    }
-    .plan-header .desc {
-      color: #444;
-      font-size: 1.01rem;
-      font-weight: 500;
-      display: block;
-      margin: 0;
-    }
-    .acordeon-icon {
-      font-size: 1.6rem;
-      color: #6C3BD2;
-      margin-top: 12px;
-      transition: transform 0.24s;
-      display: inline-block;
-    }
-    .plan-acordeon.open .acordeon-icon {
-      transform: rotate(90deg);
-    }
-    .plan-body {
-      background: #f6f3fe;
-      padding: 22px 19px 19px 19px;
-      animation: fadeIn .42s;
-      border-top: 1px solid #e3d8f9;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-    }
-    .plan-acordeon.open {
-      min-height: 270px;
-      height: auto;
-      box-shadow: 0 8px 38px #c7b6ee;
-      z-index: 2;
-      cursor: default;
-      transition: box-shadow 0.19s, transform 0.14s, height 0.38s cubic-bezier(.29,.66,.43,1.01);
-    }
-    .plan-acordeon.open .plan-body {
-      display: flex;
-      animation: fadeIn .42s;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(28px);}
-      to { opacity: 1; transform: none;}
-    }
-    .plan-precio {
-      background: #6C3BD2;
-      color: #fff;
-      font-size: 1.14rem;
-      font-weight: bold;
-      border-radius: 10px;
-      padding: 0.7rem 1.15rem;
-      margin-bottom: 1.1rem;
-      box-shadow: 0 2px 8px #e3d8f9;
-      letter-spacing: 0.7px;
-      display: inline-block;
-    }
-    .plan-lista {
-      color: #333;
-      margin-bottom: 1.1rem;
-      margin-top: 0.2rem;
-      padding-left: 17px;
-      font-size: 0.99rem;
-      text-align: left;
-    }
-    .plan-lista li {
-      margin-bottom: 0.65rem;
-      line-height: 1.48;
-    }
-    .plan-resumen {
-      font-size: 0.98rem;
-      background: #F7F6FA;
-      color: #6C3BD2;
-      border-radius: 7px;
-      padding: 0.58rem 0.99rem;
+
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: .95; letter-spacing: .02em;
       margin-bottom: 1rem;
-      font-weight: 600;
-      font-family: 'Montserrat', sans-serif;
-      display: inline-block;
+    }
+    h1 span { color: var(--purple2); }
+
+    .last-update {
+      font-size: .78rem; color: var(--muted);
+      letter-spacing: .06em; text-transform: uppercase;
+      margin-bottom: 3.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border2);
+    }
+
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border2);
+      border-radius: 14px;
+      padding: 2rem 2.2rem;
+      margin-bottom: 1.2rem;
+      transition: border-color .25s;
+    }
+    .section:hover { border-color: var(--border); }
+
+    .section-num {
+      font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--purple3); margin-bottom: .5rem;
+    }
+
+    h2 {
+      font-size: 1.05rem; font-weight: 600;
+      color: var(--text); margin-bottom: .9rem;
+      letter-spacing: .01em;
+    }
+
+    p, li {
+      font-size: .92rem; line-height: 1.8;
+      color: #8a87a0;
+    }
+
+    ul { padding-left: 1.3rem; }
+    li { margin-bottom: .35rem; }
+
+    a.mail {
+      color: var(--purple3); text-decoration: none;
+      border-bottom: 1px solid rgba(196,157,255,.3);
+      transition: border-color .2s, color .2s;
+    }
+    a.mail:hover { color: var(--purple2); border-color: var(--purple2); }
+
+    /* FOOTER */
+    footer {
       text-align: center;
+      padding: 2.5rem 2rem;
+      border-top: 1px solid var(--border2);
+      color: var(--muted);
+      font-size: .78rem;
+      letter-spacing: .05em;
     }
-    .btn-formulario {
-      background: #6C3BD2;
-      color: #fff;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.02rem;
-      padding: 0.62rem 1.2rem;
-      border-radius: 10px;
-      border: none;
-      cursor: pointer;
-      font-weight: 600;
-      text-decoration: none;
-      box-shadow: 0 2px 12px rgba(60,28,123,0.09);
-      transition: background 0.17s;
-      display: inline-block;
-      letter-spacing: 0.32px;
-      margin-bottom: 0.25rem;
-    }
-    .btn-formulario:hover {
-      background: #5227a3;
-      color: #fff;
-    }
-    .btn-volver {
-      display: block;
-      margin: 2.1rem auto 0 auto;
-      background: #EAEAEA;
-      color: #6C3BD2;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.05rem;
-      padding: 0.9rem 2.1rem;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 700;
-      box-shadow: 0 2px 10px rgba(60,28,123,0.08);
-      border: none;
-      transition: background 0.16s, color 0.16s;
-      text-align: center;
-      width: fit-content;
-      cursor: pointer;
-    }
-    .btn-volver:hover {
-      background: #6C3BD2;
-      color: #fff;
-    }
-    @media (max-width: 950px) {
-      .planes-grid { flex-wrap: wrap; }
-      .plan-acordeon { margin-bottom: 22px; }
-    }
-    @media (max-width: 850px) {
-      .planes-grid { flex-direction: column; align-items: center; }
-      .plan-acordeon { width: 92vw; min-width: 0; max-width: 340px;}
-    }
-    @media (max-width: 700px) {
-      .planes-container { padding: 1.2rem 0.2rem 1.5rem 0.2rem; }
-      .planes-titulo { font-size: 1.2rem; }
-    }
-    @media (max-width: 700px) {
-  .logo-nexia {
-    height: 150px;   /* Tamaño ideal para móvil */
-    top: -45%;       /* Centrado vertical en el banner móvil */
-    left: 50%;      /* Centrado horizontal (no lo cambiaste, pero lo reafirmo por si acaso) */
-    transform: translate(-50%, -50%);
-    max-width: 95vw;  /* Por si el logo es muy ancho, nunca se sale */
-  }
-}
+    footer a { color: var(--muted); text-decoration: none; transition: color .2s; }
+    footer a:hover { color: var(--purple3); }
   </style>
 </head>
 <body>
-  <div class="filtro-fondo"></div>
-  <!-- BANNER Y LOGO INDEPENDIENTES -->
-  <header class="header-banner">
-    <img 
-      src="https://res.cloudinary.com/dzy2rrwao/image/upload/v1748275301/logo_Nexia_PNG_sin_fondo_acomodado_f6ov3b.svg" 
-      alt="Logo Nexia Studio"
-      class="logo-nexia"
-    >
-  </header>
-  <!-- FIN HEADER -->
 
-  <div class="planes-container">
-    <div class="planes-titulo">Elegí el plan que más se adapta a tu marca</div>
-    <div class="planes-grid">
+<nav>
+  <a href="/" class="nav-logo">Nexia Studio</a>
+  <a href="/" class="nav-back">← Volver al inicio</a>
+</nav>
 
-      <!-- PLAN PROFESIONAL -->
-      <div class="plan-acordeon" onclick="togglePlan(event, this)">
-        <div class="plan-header">
-          <h3>💼 Profesional</h3>
-          <span class="desc">Ideal para marcas que quieren mantener una presencia activa, profesional y atractiva en redes sin complicarse.</span>
-          <span class="acordeon-icon">&#9654;</span>
-        </div>
-        <div class="plan-body">
-          <div class="plan-precio">$199.000 ARS / mes</div>
-          <ul class="plan-lista">
-            <li>8 publicaciones mensuales</li>
-            <li>4 reels mensuales</li>
-            <li>8 historias mensuales</li>
-            <li>Textos profesionales redactados por Nexia</li>
-            <li>Diseño visual coherente con la identidad de la marca</li>
-            <li>Reporte mensual de métricas (Instagram)</li>
-            <li>Calendario semanal de contenido</li>
-            <li>1 revisión por contenido</li>
-            <li>🎁 BONUS: Revisión estética de tu perfil en el primer mes.</li>
-          </ul>
-          <div class="plan-resumen">👉 Vos subís el contenido. Nosotros hacemos que funcione.</div>
-          <a class="btn-formulario"
-            href="https://mpago.la/2k77PP8"
-            target="_blank" rel="noopener">
-            Pagar con Mercado Pago (incluye recargo)
-            <a class="btn-formulario"
-            href="https://wa.me/5491170766781?text=Hola%2C%20quiero%20contratar%20el%20Plan%20Profesional%20y%20pagar%20por%20transferencia."
-            target="_blank" rel="noopener">
-            Pagar por Transferencia (recomendado)
-          </a>
-          </a>
-        </div>
-      </div>
+<main>
 
-      <!-- PLAN PREMIUM -->
-      <div class="plan-acordeon" onclick="togglePlan(event, this)">
-        <div class="plan-header">
-          <h3>📈 Premium</h3>
-          <span class="desc">Para marcas que quieren destacarse y crecer en redes con contenido potente, constante y estratégico.</span>
-          <span class="acordeon-icon">&#9654;</span>
-        </div>
-        <div class="plan-body">
-          <div class="plan-precio">$249.000 ARS / mes</div>
-          <ul class="plan-lista">
-            <li>12 publicaciones mensuales</li>
-            <li>6 reels mensuales</li>
-            <li>12 historias mensuales</li>
-            <li>Textos de alto impacto redactados por Nexia</li>
-            <li>Diseño visual profesional y coherente con la identidad</li>
-            <li>Guía de publicación personalizada(qué subir, cuándo y cómo)</li>
-            <li>Estrategia semanal (temática, objetivo)</li>
-            <li>2 reportes mensuales (con métricas detalladas de Instagram)</li>
-            <li>Asesorías directas por WhatsApp (resolución rápida de dudas y ajustes)</li>
-          </ul>
-          <div class="plan-resumen">👉 Nexia hace todo. Vos solo te encargás de subirlo.</div>
-          <a class="btn-formulario"
-            href="https://mpago.la/31ofP6E"
-            target="_blank" rel="noopener">
-            Pagar con Mercado Pago (incluye recargo)
-            <a class="btn-formulario"
-            href="https://wa.me/5491170766781?text=Hola%2C%20quiero%20contratar%20el%20Plan%20Premium%20y%20pagar%20por%20transferencia."
-            target="_blank" rel="noopener">
-            Pagar por Transferencia (recomendado)
-          </a>
-          </a>
-        </div>
-      </div>
+  <div class="page-tag">Legal</div>
 
-      <!-- PLAN ÉLITE -->
-      <div class="plan-acordeon" onclick="togglePlan(event, this)">
-        <div class="plan-header">
-          <h3>🚀 Élite</h3>
-          <span class="desc">Pensado para marcas que quieren delegar por completo su comunicación digital. Nexia se encarga de todo.</span>
-          <span class="acordeon-icon">&#9654;</span>
-        </div>
-        <div class="plan-body">
-          <div class="plan-precio">$299.000 ARS / mes</div>
-          <ul class="plan-lista">
-            <li>16 publicaciones mensuales</li>
-            <li>8 reels mensuales</li>
-            <li>16 historias mensuales</li>
-            <li>Textos estratégicos redactados por Nexia</li>
-            <li>Diseño visual completo</li>
-            <li>Manejo parcial de la cuenta de Instagram
-(incluye publicación de contenidos, configuración de respuestas automáticas y seguimiento activo)</li>
-            <li>Campañas publicitarias incluidas( ver términos)</li>
-            <li>Fotografías profesionales para contenido exclusivo (solo para Buenos Aires Capital)</li>
-            <li>Reporte mensual de resultados y recomendaciones prácticas</li>
-            <li>Asesoramiento personalizado (vía WhatsApp)</li>
-          </ul>
-          <div class="plan-resumen">👉 Vos te enfocás en tu negocio. Nexia se ocupa de todo lo demás.</div>
-          <a class="btn-formulario"
-            href="https://mpago.la/286VMx3"
-            target="_blank" rel="noopener">
-            Pagar con Mercado Pago (incluye recargo)
-            <a class="btn-formulario"
-            href="https://wa.me/5491170766781?text=Hola%2C%20quiero%20contratar%20el%20Plan%20Élite%20y%20pagar%20por%20transferencia."
-            target="_blank" rel="noopener">
-            Pagar por Transferencia (recomendado)
-          </a>
-          </a>
-        </div>
-      </div>
-    </div>
-    <button class="btn-volver" onclick="window.location.href='index.html'">← Volver</button>
+  <h1>Política de <span>Privacidad</span></h1>
+
+  <p class="last-update">Última actualización: marzo 2026</p>
+
+  <div class="section">
+    <div class="section-num">01</div>
+    <h2>Responsable del tratamiento</h2>
+    <p>
+      <strong>Nexia Studio</strong><br>
+      Responsable: Samuel Torres<br>
+      Email de contacto: <a href="mailto:samuel@nexiastudio.net" class="mail">samuel@nexiastudio.net</a>
+    </p>
   </div>
-  <footer>
-    <p>© 2025 Nexia Studio — Todos los derechos reservados</p>
-  </footer>
-  <script>
-    // Solo un acordeón abierto a la vez
-    function togglePlan(event, element) {
-      event.stopPropagation();
-      const acordeones = document.querySelectorAll('.plan-acordeon');
-      acordeones.forEach(acc => {
-        if (acc !== element) acc.classList.remove('open');
-      });
-      element.classList.toggle('open');
-    }
-  </script>
+
+  <div class="section">
+    <div class="section-num">02</div>
+    <h2>Datos que recopilamos</h2>
+    <p>A través del formulario de contacto de nuestro sitio web recopilamos únicamente los siguientes datos personales:</p>
+    <ul>
+      <li>Nombre</li>
+      <li>Dirección de correo electrónico</li>
+      <li>Mensaje o consulta enviada</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-num">03</div>
+    <h2>Finalidad del tratamiento</h2>
+    <p>Los datos recopilados se utilizan exclusivamente para responder consultas comerciales enviadas a través del formulario de contacto. No utilizamos los datos para ningún otro fin.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-num">04</div>
+    <h2>Compartición de datos con terceros</h2>
+    <p>Nexia Studio no comparte, vende ni transfiere tus datos personales a terceros bajo ninguna circunstancia.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-num">05</div>
+    <h2>Tus derechos</h2>
+    <p>Tenés derecho a solicitar la eliminación, rectificación o acceso a tus datos personales en cualquier momento. Para ejercer estos derechos, escribinos a:</p>
+    <br>
+    <p><a href="mailto:samuel@nexiastudio.net" class="mail">samuel@nexiastudio.net</a></p>
+    <br>
+    <p>Responderemos tu solicitud dentro de un plazo razonable.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 Nexia Studio — Todos los derechos reservados &nbsp;·&nbsp; <a href="/">Volver al inicio</a></p>
+</footer>
+
 </body>
 </html>
